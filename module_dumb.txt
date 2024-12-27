@@ -1,0 +1,111 @@
+
+/home/user/repos/busybox/_install/hello1.ko:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <print_hello>:
+   0:	e350000a 	cmp	r0, #10
+   4:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+   8:	8a00002c 	bhi	c0 <print_hello+0xc0>
+   c:	e2403005 	sub	r3, r0, #5
+  10:	e1a07000 	mov	r7, r0
+  14:	e3500000 	cmp	r0, #0
+  18:	13530005 	cmpne	r3, #5
+  1c:	83006000 	movwhi	r6, #0
+  20:	83406000 	movthi	r6, #0
+  24:	83a03000 	movhi	r3, #0
+  28:	93a03001 	movls	r3, #1
+  2c:	85863000 	strhi	r3, [r6]
+  30:	9a000023 	bls	c4 <print_hello+0xc4>
+  34:	e3008000 	movw	r8, #0
+  38:	e3a0a0c0 	mov	sl, #192	; 0xc0
+  3c:	e3009000 	movw	r9, #0
+  40:	e3005000 	movw	r5, #0
+  44:	e3408000 	movt	r8, #0
+  48:	e340a060 	movt	sl, #96	; 0x60
+  4c:	e3409000 	movt	r9, #0
+  50:	e3405000 	movt	r5, #0
+  54:	e3a02018 	mov	r2, #24
+  58:	e1a0100a 	mov	r1, sl
+  5c:	e5980018 	ldr	r0, [r8, #24]
+  60:	ebfffffe 	bl	0 <kmem_cache_alloc_trace>
+  64:	e3500000 	cmp	r0, #0
+  68:	0a000020 	beq	f0 <print_hello+0xf0>
+  6c:	ebfffffe 	bl	0 <ktime_get>
+  70:	e3a04000 	mov	r4, #0
+  74:	e1a02000 	mov	r2, r0
+  78:	e1a03001 	mov	r3, r1
+  7c:	e1a00009 	mov	r0, r9
+  80:	e1c420f8 	strd	r2, [r4, #8]
+  84:	ebfffffe 	bl	0 <printk>
+  88:	ebfffffe 	bl	0 <ktime_get>
+  8c:	e1c401f0 	strd	r0, [r4, #16]
+  90:	e5953004 	ldr	r3, [r5, #4]
+  94:	e5854004 	str	r4, [r5, #4]
+  98:	e5845000 	str	r5, [r4]
+  9c:	e5843004 	str	r3, [r4, #4]
+  a0:	e5834000 	str	r4, [r3]
+  a4:	e5963000 	ldr	r3, [r6]
+  a8:	e2833001 	add	r3, r3, #1
+  ac:	e5863000 	str	r3, [r6]
+  b0:	e1570003 	cmp	r7, r3
+  b4:	1affffe6 	bne	54 <print_hello+0x54>
+  b8:	e3a00000 	mov	r0, #0
+  bc:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+  c0:	e7f001f2 	.word	0xe7f001f2
+  c4:	e3000000 	movw	r0, #0
+  c8:	e1a01007 	mov	r1, r7
+  cc:	e3400000 	movt	r0, #0
+  d0:	e3006000 	movw	r6, #0
+  d4:	ebfffffe 	bl	0 <printk>
+  d8:	e3406000 	movt	r6, #0
+  dc:	e3570000 	cmp	r7, #0
+  e0:	e3a03000 	mov	r3, #0
+  e4:	e5863000 	str	r3, [r6]
+  e8:	0afffff2 	beq	b8 <print_hello+0xb8>
+  ec:	eaffffd0 	b	34 <print_hello+0x34>
+  f0:	e3000000 	movw	r0, #0
+  f4:	e3400000 	movt	r0, #0
+  f8:	ebfffffe 	bl	0 <printk>
+  fc:	e3e0000b 	mvn	r0, #11
+ 100:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+
+Disassembly of section .init.text:
+
+00000000 <init_module>:
+   0:	e3a00000 	mov	r0, #0
+   4:	e12fff1e 	bx	lr
+
+Disassembly of section .exit.text:
+
+00000000 <cleanup_module>:
+   0:	e3003000 	movw	r3, #0
+   4:	e3403000 	movt	r3, #0
+   8:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+   c:	e3007000 	movw	r7, #0
+  10:	e5934000 	ldr	r4, [r3]
+  14:	e3407000 	movt	r7, #0
+  18:	e3a08c01 	mov	r8, #256	; 0x100
+  1c:	e1a05003 	mov	r5, r3
+  20:	e3a09c02 	mov	r9, #512	; 0x200
+  24:	e5946000 	ldr	r6, [r4]
+  28:	e1540005 	cmp	r4, r5
+  2c:	08bd87f0 	popeq	{r4, r5, r6, r7, r8, r9, sl, pc}
+  30:	e5941010 	ldr	r1, [r4, #16]
+  34:	e1a00007 	mov	r0, r7
+  38:	e5942008 	ldr	r2, [r4, #8]
+  3c:	e594c014 	ldr	ip, [r4, #20]
+  40:	e594300c 	ldr	r3, [r4, #12]
+  44:	e0512002 	subs	r2, r1, r2
+  48:	e0cc3003 	sbc	r3, ip, r3
+  4c:	ebfffffe 	bl	0 <printk>
+  50:	e1c420d0 	ldrd	r2, [r4]
+  54:	e1a00004 	mov	r0, r4
+  58:	e5823004 	str	r3, [r2, #4]
+  5c:	e5832000 	str	r2, [r3]
+  60:	e1c480f0 	strd	r8, [r4]
+  64:	e1a04006 	mov	r4, r6
+  68:	ebfffffe 	bl	0 <kfree>
+  6c:	e5966000 	ldr	r6, [r6]
+  70:	eaffffec 	b	28 <cleanup_module+0x28>
